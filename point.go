@@ -9,6 +9,6 @@ type Point struct {
 
 // Hypot returns Sqrt(p*p + q*q), taking care to avoid
 // unnecessary overflow and underflow.
-func Hypot(a Point) float64 {
-	return math.Hypot(a.x, a.y)
+func (p Point) Hypot() float64 {
+	return math.Hypot(p.x, p.y)
 }

@@ -14,7 +14,7 @@ var tableTestHypot = []struct {
 
 func TestHypot(t *testing.T) {
 	for _, tt := range tableTestHypot {
-		actual := Hypot(tt.in)
+		actual := tt.in.Hypot()
 		if actual != tt.expected {
 			t.Errorf("Hypot(%v) got %v, expected %v", tt.in, actual, tt.expected)
 		}
