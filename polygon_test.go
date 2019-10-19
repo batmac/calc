@@ -7,20 +7,20 @@ var tableTestPolygonArea = []struct {
 	expected float64
 }{
 	// check types
-	{[]Point{Point{float64(0), float64(0)}, Point{float64(1), float64(0)}, Point{float64(1), float64(1)}, Point{0, 1}}, float64(1)},
+	{[]Point{{float64(0), float64(0)}, {float64(1), float64(0)}, {float64(1), float64(1)}, {0, 1}}, float64(1)},
 	// 3 points
-	{[]Point{Point{1, 0}, Point{1, 1}, Point{0, 1}}, 0.5},
+	{[]Point{{1, 0}, {1, 1}, {0, 1}}, 0.5},
 	// rotating points from a square
-	{[]Point{Point{0, 0}, Point{1, 0}, Point{1, 1}, Point{0, 1}}, 1},
-	{[]Point{Point{1, 0}, Point{1, 1}, Point{0, 1}, Point{0, 0}}, 1},
-	{[]Point{Point{1, 1}, Point{0, 1}, Point{0, 0}, Point{1, 0}}, 1},
-	{[]Point{Point{0, 1}, Point{0, 0}, Point{1, 0}, Point{1, 1}}, 1},
+	{[]Point{{0, 0}, {1, 0}, {1, 1}, {0, 1}}, 1},
+	{[]Point{{1, 0}, {1, 1}, {0, 1}, {0, 0}}, 1},
+	{[]Point{{1, 1}, {0, 1}, {0, 0}, {1, 0}}, 1},
+	{[]Point{{0, 1}, {0, 0}, {1, 0}, {1, 1}}, 1},
 	// random leveled rectangle
-	{[]Point{Point{5, 5}, Point{-1, 5}, Point{-1, -2}, Point{5, -2}}, 42},
+	{[]Point{{5, 5}, {-1, 5}, {-1, -2}, {5, -2}}, 42},
 	// random polygon
-	{[]Point{Point{5, -1}, Point{2, 4}, Point{-1, 2}, Point{2, 0}}, 12},
+	{[]Point{{5, -1}, {2, 4}, {-1, 2}, {2, 0}}, 12},
 	// points in reverse order
-	{[]Point{Point{2, 0}, Point{-1, 2}, Point{2, 4}, Point{5, -1}}, 12},
+	{[]Point{{2, 0}, {-1, 2}, {2, 4}, {5, -1}}, 12},
 }
 
 func TestPolygonArea(t *testing.T) {

@@ -59,14 +59,14 @@ func BenchmarkUgcdEuclid(b *testing.B) {
 	rand.Seed(_seed)
 	u, v := uint64(rand.Int63()), uint64(rand.Int63())
 	for i := 0; i < b.N; i++ {
-		_r = UgcdEuclid(u, v)
+		_ruint64 = UgcdEuclid(u, v)
 	}
 }
 func BenchmarkUgcdBinary(b *testing.B) {
 	rand.Seed(_seed)
 	u, v := uint64(rand.Int63()), uint64(rand.Int63())
 	for i := 0; i < b.N; i++ {
-		_r = UgcdBinary(u, v)
+		_ruint64 = UgcdBinary(u, v)
 	}
 }
 

@@ -5,6 +5,7 @@ import (
 )
 
 var (
-	_seed = int64(os.Getpid())
-	_r    uint64
+	_seed    = int64(os.Getpid())
+	_ruint64 uint64
+	_rint64  int64
 )

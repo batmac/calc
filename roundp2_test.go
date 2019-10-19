@@ -45,8 +45,7 @@ func BenchmarkFlp2Naive1(b *testing.B) {
 	rand.Seed(_seed)
 	n := uint64(rand.Int63())
 	for i := 0; i < b.N; i++ {
-		_r = Flp2Naive1(n)
-
+		_ruint64 = Flp2Naive1(n)
 	}
 }
 
@@ -54,8 +53,7 @@ func BenchmarkFlp2(b *testing.B) {
 	rand.Seed(_seed)
 	n := uint64(rand.Int63())
 	for i := 0; i < b.N; i++ {
-		_r = Flp2(n)
-
+		_ruint64 = Flp2(n)
 	}
 }
 
@@ -86,5 +84,12 @@ func TestClp2(t *testing.T) {
 		if actual != tt.expected {
 			t.Errorf("Clp2(%v) got %v, expected %v", tt.in, actual, tt.expected)
 		}
+	}
+}
+func BenchmarkClp2(b *testing.B) {
+	rand.Seed(_seed)
+	n := uint64(rand.Int63())
+	for i := 0; i < b.N; i++ {
+		_ruint64 = Clp2(n)
 	}
 }
