@@ -58,3 +58,12 @@ func UgcdBinary(a, b uint64) uint64 {
 
 	return a << d
 }
+
+// Lcm returns the lcm of a and b
+//  quick&dirty impl considering innt64 only (not uint64)
+func Lcm(a, b int64) int64 {
+	if a == 0 || b == 0 {
+		return 0
+	}
+	return Abs(a / Gcd(a, b) * b)
+}

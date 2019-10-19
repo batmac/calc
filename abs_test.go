@@ -31,3 +31,11 @@ func TestAbs(t *testing.T) {
 		}
 	}
 }
+func TestNabs(t *testing.T) {
+	for _, tt := range tableTestAbs {
+		actual := Nabs(tt.in)
+		if actual != -tt.expected {
+			t.Errorf("Nabs(%v) got %v, expected -%v", tt.in, actual, tt.expected)
+		}
+	}
+}

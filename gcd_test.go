@@ -3,13 +3,7 @@ package calc
 import (
 	"math"
 	"math/rand"
-	"os"
 	"testing"
-)
-
-var (
-	_seed = int64(os.Getpid())
-	_r    uint64
 )
 
 var tableTestUgcd = []struct {
@@ -73,5 +67,25 @@ func BenchmarkUgcdBinary(b *testing.B) {
 	u, v := uint64(rand.Int63()), uint64(rand.Int63())
 	for i := 0; i < b.N; i++ {
 		_r = UgcdBinary(u, v)
+	}
+}
+
+var tableTestLcm = []struct {
+	a, b     int64
+	expected int64
+}{
+	{0, 0, 0},
+	{0, 1, 0},
+	{1, 0, 0},
+	{1, 1, 1},
+	{10, 15, 30},
+}
+
+func TestLcm(t *testing.T) {
+	for _, tt := range tableTestLcm {
+		actual := Lcm(tt.a, tt.b)
+		if actual != tt.expected {
+			t.Errorf("Lcm(%v,%v) got %v, expected %v", tt.a, tt.b, actual, tt.expected)
+		}
 	}
 }
