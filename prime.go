@@ -1,6 +1,7 @@
 package calc
 
 import (
+	"fmt"
 	"math"
 	"math/bits"
 )
@@ -56,7 +57,7 @@ func IsPrimeTrial(n uint64) bool {
 	return true
 }
 
-// TryVeryTrivialPrime filter [0;3] and even numbers
+// TryVeryTrivialPrime filters [0;3] and even numbers
 func TryVeryTrivialPrime(n uint64) (bool, bool) {
 	sure := true
 	if n <= 1 {
@@ -74,6 +75,7 @@ func TryVeryTrivialPrime(n uint64) (bool, bool) {
 	return !sure, true
 }
 
+// TryTrivialPrime tests smallprime factors
 func TryTrivialPrime(n uint64) (bool, bool) {
 	sure := true
 	for _, v := range _smallPrimes {
@@ -128,4 +130,42 @@ WitnessLoop:
 		return false
 	}
 	return true
+}
+
+func PrimeNext(n uint64) uint64 {
+	if n&1 == 1 {
+		n += 2
+	} else {
+		n++
+	}
+	fmt.Println(n)
+	for {
+		if n%1023 == 0 {
+
+			fmt.Println(n)
+		}
+		if IsPrime(n) {
+			return n
+		}
+		n += 2
+	}
+}
+func PrimePrevious(n uint64) uint64 {
+	if n == 3 {
+		return 2
+	}
+	if n <= 2 {
+		return 0
+	}
+	if n&1 == 1 {
+		n -= 2
+	} else {
+		n--
+	}
+	for {
+		if IsPrime(n) {
+			return n
+		}
+		n -= 2
+	}
 }

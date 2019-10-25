@@ -1,6 +1,7 @@
 package calc
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -28,7 +29,7 @@ func Mulm(a, b, m uint64) uint64 {
 	}
 	// fmt.Printf("   ->MulmN(a=%v,b=%v,m=%v) m+a-1=%v\n", a, b, m, m+a-1)
 	if m+a-2 < m || a > (math.MaxUint64>>1) {
-		panic("Mulm will overflow")
+		panic(fmt.Sprintf("Mulm(%v,%v,%v) will overflow", a, b, m))
 	}
 
 	var r uint64
